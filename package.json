@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Bork service",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:4apaev/borks.git"
+  },
   "scripts": {
     "start": "node index.js",
     "db": "docker-compose up -d",
