@@ -1,0 +1,51 @@
+{
+  "name": "borks",
+  "version": "1.0.0",
+  "description": "Bork service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "db": "docker-compose up -d",
+    "it": "NODE_ENV=test mocha --exit",
+    "test": "NODE_ENV=test nyc mocha src/**/*.spec.js --exit",
+    "coverage": "NODE_ENV=test nyc report --reporter=cobertura --report-dir=./output",
+    "migrate": "cd src && ../node_modules/.bin/sequelize db:migrate && ../node_modules/.bin/sequelize db:seed:all && cd .."
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 70,
+    "statements": 70,
+    "functions": 70,
+    "branches": 70,
+    "exclude": [
+      "**/*.spec.js",
+      "**/index.js",
+      "**/repository.js",
+      "**/server.js",
+      "**/schema.js",
+      "**/config.js",
+      "**/model.js"
+    ]
+  },
+  "dependencies": {
+    "is": "git@github.com:4apaev/is.git",
+    "define": "git@github.com:4apaev/define.git",
+    "koa": "latest",
+    "koa-body": "latest",
+    "koa-router": "latest",
+    "pg": "latest",
+    "sequelize": "latest",
+    "sequelize-cli": "latest"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.46",
+    "@types/koa-router": "^7.0.32",
+    "chai": "latest",
+    "chai-http": "latest",
+    "istanbul": "latest",
+    "mocha": "latest",
+    "nyc": "latest",
+    "typescript": "latest"
+  }
+}

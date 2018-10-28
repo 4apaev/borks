@@ -1,0 +1,14 @@
+# docker-compose up --build
+# docker exec -it olo_db_1 psql -U postgres
+# docker exec -it postgres psql -U postgres
+
+version: '2'
+services:
+  db:
+    image: postgres
+    ports:
+    - "5432:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: ""
+      POSTGRES_DB: "shoshi"
